@@ -2,9 +2,25 @@ var express = require('express');
 var app = express();
 var request = require('request');
 var bodyParser = require('body-parser');
+var pg = require('pg');
 
 var token = "EAAINjmZBbO3IBAPETswkn6IN47EMXRZBJWaLti70FuHLqyCma7edPhBYh8j7UekZC95fgNDtaTzehKUjZCZCZBkwMfYSWfFfL3wgjM5H9majnuZBuSjUbUx2Avf84fTHMcZA79mohADc5PZAK78Vh08QrBZANuvXCY6v4X0Ps2aZBZBAUgZDZD";
 var uses = 0;
+/*
+//connect to Database
+pg.defaults.ssl = true;
+pg.connect(process.env.DATABASE_URL, function(err, client) {
+  if (err) throw err;
+  console.log('Connected to postgres! Getting schemas...');
+
+  client
+    .query('SELECT table_schema,table_name FROM information_schema.tables;')
+    .on('row', function(row) {
+      console.log(JSON.stringify(row));
+    });
+});
+*/
+//change to RB Tree
 var users = [];
 
 app.use(bodyParser.json());
@@ -17,7 +33,7 @@ app.get('/', function (req, res) {
 
 
 function sendTextMessage(sender, text) {
-  var uses++;
+  uses++;
 
   messageData = {
     text:text
