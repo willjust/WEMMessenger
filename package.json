@@ -1,0 +1,25 @@
+{
+  "name": "AutoChat",
+  "version": "0.0.0",
+  "description": "Chatting ",
+  "main": "index.js",
+  "dependencies": {
+    "body-parser": "^1.15.0",
+    "express": "^4.13.4",
+    "request": "^2.72.0"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "start": "node index.js",
+    "test": "no"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/willjust/WEMMessenger.git"
+  },
+  "author": "Justin Williams (willjust6@gmail.com)",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/willjust/WEMMessenger/issues"
+  }
+}
