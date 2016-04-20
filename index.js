@@ -3,6 +3,10 @@ var app = express();
 var request = require('request');
 var bodyParser = require('body-parser');
 
+var token = "EAAINjmZBbO3IBAPETswkn6IN47EMXRZBJWaLti70FuHLqyCma7edPhBYh8j7UekZC95fgNDtaTzehKUjZCZCZBkwMfYSWfFfL3wgjM5H9majnuZBuSjUbUx2Avf84fTHMcZA79mohADc5PZAK78Vh08QrBZANuvXCY6v4X0Ps2aZBZBAUgZDZD";
+var uses = 0;
+var users = [];
+
 app.use(bodyParser.json());
 
 app.set('port', (process.env.PORT || 5000));
@@ -11,9 +15,10 @@ app.get('/', function (req, res) {
   res.send('Hello World!');
 });
 
-var token = "EAAINjmZBbO3IBAPETswkn6IN47EMXRZBJWaLti70FuHLqyCma7edPhBYh8j7UekZC95fgNDtaTzehKUjZCZCZBkwMfYSWfFfL3wgjM5H9majnuZBuSjUbUx2Avf84fTHMcZA79mohADc5PZAK78Vh08QrBZANuvXCY6v4X0Ps2aZBZBAUgZDZD";
 
 function sendTextMessage(sender, text) {
+  var uses++;
+
   messageData = {
     text:text
   }
@@ -35,7 +40,7 @@ function sendTextMessage(sender, text) {
 }
 
 function topStoryList() {
-  
+
 }
 app.get('/webhook', function (req, res) {
   if (req.query['hub.verify_token'] === 'yolo__123__justin') {
