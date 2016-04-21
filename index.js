@@ -6,7 +6,7 @@ var pg = require('pg');
 
 var token = "EAAINjmZBbO3IBAPETswkn6IN47EMXRZBJWaLti70FuHLqyCma7edPhBYh8j7UekZC95fgNDtaTzehKUjZCZCZBkwMfYSWfFfL3wgjM5H9majnuZBuSjUbUx2Avf84fTHMcZA79mohADc5PZAK78Vh08QrBZANuvXCY6v4X0Ps2aZBZBAUgZDZD";
 var uses = 0;
-/*
+
 //connect to Database
 pg.defaults.ssl = true;
 pg.connect(process.env.DATABASE_URL, function(err, client) {
@@ -19,8 +19,8 @@ pg.connect(process.env.DATABASE_URL, function(err, client) {
       console.log(JSON.stringify(row));
     });
 });
-*/
-//change to RB Tree
+
+//change to RB Tree */
 var users = [];
 
 app.use(bodyParser.json());
@@ -82,3 +82,7 @@ app.post('/webhook/', function (req, res) {
 app.listen(app.get('port'), function() {
   console.log('Node app is running on port', app.get('port'));
 });
+
+process.on('uncaughtException', function (err) {
+  console.log(err);
+})
